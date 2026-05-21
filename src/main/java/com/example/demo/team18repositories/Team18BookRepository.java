@@ -10,5 +10,5 @@ import com.example.demo.team18entity.Team18BookEntity;
 @Repository
 public interface Team18BookRepository extends JpaRepository<Team18BookEntity,String>{
 
-	 List<Team18BookEntity> findByBookNameContaining(String keyword);
+	 List<Team18BookEntity> findByBookNmContaining(String keyword);
 }
