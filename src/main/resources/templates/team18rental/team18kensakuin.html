@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.ofg">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title></title>
 </head>
 <body>
-	<form method="get" action="/team18kensaku" th:object="${kensakuform}">
+	<form method="post" th:action="@{/team18kensaku1}" th:object="${kensakuForm}">
 		検索
-		<input type="text" th:field="*{sarch}" size="10"/>
+		<input type="text" th:field="*{search}" size="10"/>
 		<br>
 		<br>
 		<input type="submit" value="検索" />

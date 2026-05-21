@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.ofg">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<form th:object="${kensakuForm}">
-<p th:text="*{srach}"></p>
-</form>
+	<p th:text="${kensakuForm.search}"></p>
 </body>
 </html>
