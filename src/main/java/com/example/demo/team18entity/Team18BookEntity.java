@@ -16,4 +16,5 @@ public class Team18BookEntity {
 	private String bookNm;
 	private String author;
 	private Integer publishDay;
+	private Integer stock;
 }
