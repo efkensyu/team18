@@ -1,5 +1,11 @@
 package com.example.demo.team18service;
 
-public class Team18UserService {
+import org.springframework.stereotype.Service;
 
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class Team18UserService {
+	
 }
