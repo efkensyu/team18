@@ -1,6 +1,5 @@
 package com.example.demo.team18service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -21,7 +20,6 @@ public class team18GachaService {
 	private final Random random = new Random();
 	
 	public Team18TitleEntity gacha() {
-		List<Team18TitleEntity> none = new ArrayList<>();
 		List<Team18TitleEntity> items = titleRepo.findAllTitles();//称号テーブルの内容を全て取り出す
 		double totalWeight = 0;
 		
@@ -36,14 +34,10 @@ public class team18GachaService {
 			currentWeight += 100 / item.getRarity();//各要素の重みを順にみながら足していき、randomValueの値を超えた瞬間の要素を出力する
 			if (randomValue < currentWeight) {
 				return item;
-			}
-			
-			throw new IllegalStateException("ガチャの出力に失敗しました。");
-			
+			}			
 		}
-		return none.get(0);
+		throw new IllegalStateException("ガチャの出力に失敗しました。");
 	}
-	
 	
 	
 	
