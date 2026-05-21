@@ -7,11 +7,12 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "team18_titles")
+@Table(name="user_tbl")
 @Data
-public class team18title {
+public class Team18UserEntity {
 	@Id
-	private long titleId;
-	private String titleName;
-	private String rarity;
+	private Integer userId;
+	private String userNm;
+	private String userEmail;
+	private String userPass;
 }

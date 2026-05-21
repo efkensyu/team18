@@ -5,14 +5,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import lombok.Data;
+
 @Entity
-@Table(name="status_tbl")
+@Table(name = "team18_book_tbl")
 @Data
-public class Team18Status {
-		private Integer userId;
-		private String bookId;
-		private Integer rentStart;
-		@Id
-		private Integer logId;
-	
+
+public class Team18BookEntity {
+	@Id
+	private String bookId;
+	private String bookNm;
+	private String author;
+	private Integer publishDay;
 }

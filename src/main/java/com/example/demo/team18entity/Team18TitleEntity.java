@@ -7,13 +7,11 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "team18_book_tbl")
+@Table(name = "team18_titles")
 @Data
-
-public class Team18Book {
+public class Team18TitleEntity {
 	@Id
-	private String bookId;
-	private String bookNm;
-	private String author;
-	private Integer publishDay;
+	private long titleId;
+	private String titleName;
+	private String rarity;
 }

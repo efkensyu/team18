@@ -5,14 +5,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import lombok.Data;
-
 @Entity
-@Table(name="user_tbl")
+@Table(name="status_tbl")
 @Data
-public class Team18User {
-	@Id
-	private Integer userId;
-	private String userNm;
-	private String userEmail;
-	private String userPass;
+public class Team18StatusEntity {
+		private Integer userId;
+		private String bookId;
+		private Integer rentStart;
+		@Id
+		private Integer logId;
+	
 }
