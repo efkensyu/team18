@@ -7,11 +7,11 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "team18_titles")
+@Table(name = "team18_titles_tbl")
 @Data
 public class Team18TitleEntity {
 	@Id
 	private long titleId;
 	private String titleName;
-	private String rarity;
+	private int rarity;
 }
