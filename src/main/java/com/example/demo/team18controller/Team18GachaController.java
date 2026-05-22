@@ -13,7 +13,7 @@ public class Team18GachaController {
 	private final team18GachaService gachaService;
 	
 	@PostMapping(value = "/team18gacha", params = "donot")
-	public String sendback() {//()のところはセッションで持ってきたユーザーのModelAttributeを入れる
+	public String sendback() {
 		return "team18menu/team18menu";
 	}
 	
