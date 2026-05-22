@@ -9,15 +9,15 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class Team18ReturnService {
-	private final Team18ReturnRepository returnRepository;
+	private final Team18ReturnRepository tretr;
 	
-//	public boolean isReturn(String userEmail, HttpSession session) {
-//		Team18UserEntity user = (Team18UserEntity) session.getAttribute(userEmail);
-//		return returnRepository.existsBylogId(returnRepository.userIdGet(userEmail).get(0));
-//	}
-//	
-//	public List<Integer> userIdGet(Team) {
-//		return returnRepository.userIdGet(userEmail);
-//	}
+	public boolean isReturn(String userEmail, HttpSession session) {
+		Team18UserEntity user = (Team18UserEntity) session.getAttribute(userEmail);
+		return returnRepository.existsBylogId(returnRepository.userIdGet(userEmail).get(0));
+	}
+	
+	public List<Integer> userIdGet(Team) {
+		return returnRepository.userIdGet(userEmail);
+	}
 
 }
