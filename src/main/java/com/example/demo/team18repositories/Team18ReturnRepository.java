@@ -8,5 +8,5 @@ import com.example.demo.team18entity.Team18StatusEntity;
 @Repository
 
 public interface Team18ReturnRepository extends JpaRepository<Team18StatusEntity, Integer> {
-	boolean existsByStatusId(Integer userId);
+	boolean existsBylogId(Integer userId);
 }
