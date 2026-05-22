@@ -19,7 +19,7 @@ public class Team18BookController {
 	private final Team18BookService team18bookservice;
 	@GetMapping("/book")			
 	public String index (Model model) {					
-		return "team18bookin";		
+		return "team18book/team18bookin";		
 	}
 	
 	@PostMapping("/book")
@@ -31,6 +31,7 @@ public class Team18BookController {
 		else {
 			searchlist = team18bookservice.findByBookNmContaining(name);
 		}
-		return "team18bookout";
+		model.addAttribute("searchList",searchlist);
+		return "team18book/team18bookout";
 	}
 }
