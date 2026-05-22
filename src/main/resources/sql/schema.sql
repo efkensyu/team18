@@ -1,7 +1,0 @@
-//もし部門テーブルがいたら消す（ドロップ）
-DROP TABLE IF EXISTS BUMON_TBL;		
-CREATE TABLE BUMON_TBL(		
-  BUMON_CD CHAR(3),		
-  BUMON_NM VARCHAR2(20),		
-  PRIMARY KEY(BUMON_CD)		
-  );		
