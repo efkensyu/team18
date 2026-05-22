@@ -14,17 +14,20 @@ public class Team18ReturnController {
 	
 	
 	@PostMapping(value = "/team18return", params = "back")
-	public String sendback() {//()のところはセッションで持ってきたユーザーのModelAttributeを入れる
+	public String sendback() {
 		return "team18manu/team18manu";
 	}
 	
 	@PostMapping(value = "/team18return", params = "return")
-	public String sendreturn() {//()のところはセッションで持ってきたユーザーのModelAttributeを入れる
-		if(returnService.isReturn(null)) {//nullのところはセッションで持ってきたユーザーのModelAttributeの中のuserIdを入れる
-			return "team18return/team18gacha";
-		} else {
-			return "team18manu/team18return";
-		}
+	public String sendreturn() {
+		
+		
+//		if(returnService.isReturn(session.getAttribute())) {//nullのところはセッションで持ってきたユーザーのModelAttributeの中のuserIdを入れる
+//			return "team18return/team18gacha";
+//		} else {
+//			return "team18manu/team18return";
+//		}
+		return "team18menu/team18return";
 	}
 }
 
