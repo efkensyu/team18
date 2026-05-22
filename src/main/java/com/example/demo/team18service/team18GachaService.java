@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.team18entity.Team18TitleEntity;
 import com.example.demo.team18repositories.Team18TitleRepository;
-import com.example.demo.team18repositories.Team18UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,33 +14,34 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 
 public class team18GachaService {
-	private final Team18TitleRepository titleRepo;
-	private final Team18UserRepository userRepo;
+	private final Team18TitleRepository ttr;
 	private final Random random = new Random();
 	
 	public Team18TitleEntity gacha() {
-		List<Team18TitleEntity> items = titleRepo.findAllTitles();//称号テーブルの内容を全て取り出す
-		double totalWeight = 0;
+		int number = random.nextInt(100);
 		
-		for(Team18TitleEntity item : items) {
-			totalWeight += 100 / item.getRarity();//各要素のレアリティに応じた重みをすべて足す
+		int rarity;
+//		R
+		if(number < 50 ) {
+			rarity = 1;
+//		SR	
+		}else if(number < 80) {
+			rarity = 2;
+//		SSR	
+		}else {
+			rarity = 3;
 		}
+		List<Team18TitleEntity> titles = ttr.findByrarity(rarity);
 		
-		double randomValue = random.nextDouble(totalWeight);//0から合計重みの間の数字をランダムに入れる
-		double currentWeight = 0;
+		int randomtitles = random.nextInt(titles.size());
 		
-		for(Team18TitleEntity item : items) {
-			currentWeight += 100 / item.getRarity();//各要素の重みを順にみながら足していき、randomValueの値を超えた瞬間の要素を出力する
-			if (randomValue < currentWeight) {
-				return item;
-			}			
-		}
-		throw new IllegalStateException("ガチャの出力に失敗しました。");
+		return titles.get(randomtitles);
 	}
-	
-	
-	
-
-	
-
 }
+
+
+
+
+
+
+
