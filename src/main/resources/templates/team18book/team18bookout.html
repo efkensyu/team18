@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.ofg">
+<head>
+<meta charset="UTF-8">
+<title>検索結果</title>
+</head>
+<body>
+<table border="1">
+	<th>本コード</th>
+	<th>書名</th>
+	<th>著者</th>
+	<th>発行日</th>
+	<th>在庫</th>
+		<span th:each="data : ${searchList}">
+			<tr th:object="${data}">
+				<td th:text="*{bookCd}"></td>
+				<td th:text="*{bookNm}"></td>
+				<td th:text="*{author}"></td>
+				<td th:text="*{publishDay}"></td>
+				<td th:text="*{stock}"></td>
+			</tr>
+		</span>
+</table>	
+</form>
+</body>
+</html>
