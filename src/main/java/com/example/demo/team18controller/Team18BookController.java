@@ -17,19 +17,20 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Team18BookController {		
 	private final Team18BookService team18bookservice;
+//	検索画面
 	@GetMapping("/book")			
 	public String index (Model model) {					
 		return "team18book/team18bookin";		
 	}
-	
+//	検索結果表示画面	
 	@PostMapping("/book")
-	public String send (@RequestParam String name, Model model) {
+	public String send (@RequestParam String keyword, Model model) {
 		List<Team18BookEntity> searchlist;
-		if(name.isEmpty()) {
+		if(keyword.isEmpty()) {
 			searchlist = team18bookservice.findAllByOrderByBookIdAsc();
 		}
 		else {
-			searchlist = team18bookservice.findByBookNmContaining(name);
+			searchlist = team18bookservice.findByBookNmContaining(keyword);
 		}
 		model.addAttribute("searchList",searchlist);
 		return "team18book/team18bookout";

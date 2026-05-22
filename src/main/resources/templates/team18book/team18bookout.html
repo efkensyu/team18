@@ -6,21 +6,22 @@
 </head>
 <body>
 <table border="1">
+	<tr>
 	<th>本コード</th>
 	<th>書名</th>
 	<th>著者</th>
 	<th>発行日</th>
 	<th>在庫</th>
-		<span th:each="data : ${searchList}">
-			<tr th:object="${data}">
-				<td th:text="*{bookCd}"></td>
-				<td th:text="*{bookNm}"></td>
-				<td th:text="*{author}"></td>
-				<td th:text="*{publishDay}"></td>
-				<td th:text="*{stock}"></td>
-			</tr>
-		</span>
+	</tr>
+	<th:block th:each="data : ${searchList}">
+		<tr th:object="${data}">
+			<td th:text="*{bookNm}"></td>
+			<td th:text="*{author}"></td>
+			<td th:text="*{publishDay}"></td>
+			<td th:text="*{stock}"></td>
+			<td><a th:href="@{/rental(bookId=*{bookId})}>レンタル</a></td>
+		</tr>
+	</th:block>
 </table>	
-</form>
 </body>
 </html>

@@ -13,4 +13,6 @@ public interface Team18BookRepository extends JpaRepository<Team18BookEntity,Str
 
 	public List<Team18BookEntity> findAllByOrderByBookIdAsc();
 	public List<Team18BookEntity> findByBookNmContaining(String keyword);
+	public Team18BookEntity findAllByBookId(String bookId);
+	public Team18BookEntity findByBookIdEquals(String bookId);
 }

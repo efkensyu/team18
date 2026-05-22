@@ -21,4 +21,7 @@ public class Team18BookService {
 	public List<Team18BookEntity> findByBookNmContaining(String keyword){
 		return tbr.findByBookNmContaining(keyword);
 	}
+	public Team18BookEntity findById(String bookId) {
+		return tbr.findAllByBookId(bookId);
+	}
 }

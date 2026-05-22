@@ -3,6 +3,8 @@ package com.example.demo.team18entity;
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -15,6 +17,7 @@ public class Team18StatusEntity {
 		private String bookId;
 		private LocalDate rentStart;
 		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Integer logId;
 		
 	

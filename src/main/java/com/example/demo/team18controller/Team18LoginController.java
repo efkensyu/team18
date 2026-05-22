@@ -31,7 +31,7 @@ public class Team18LoginController {
 			model.addAttribute("errar","メールアドレスまたはパスワードがまちがっています。");
 			return "team18login/team18login1";
 		}
-		session.setAttribute(userEmail, user);		
+		session.setAttribute("loginUser", user);		
 		return "team18login/team18login2";
 	}
 }

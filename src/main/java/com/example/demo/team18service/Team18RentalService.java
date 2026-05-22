@@ -1,7 +1,11 @@
 package com.example.demo.team18service;
 
+import java.time.LocalDate;
+
 import org.springframework.stereotype.Service;
 
+import com.example.demo.team18entity.Team18BookEntity;
+import com.example.demo.team18entity.Team18StatusEntity;
 import com.example.demo.team18repositories.Team18BookRepository;
 import com.example.demo.team18repositories.Team18StatusRepository;
 
@@ -13,8 +17,8 @@ public class Team18RentalService {
 	private final Team18StatusRepository tsr;
 	private final Team18BookRepository tbr;
 	
-/*	public void rentBook(String bookId,Integer userId) {
-		Team18BookEntity book = Team18BookRepository.findByBookNameContaining()
+	public void rentBook(String bookId,Integer userId) {
+		Team18BookEntity book = tbr.findByBookIdEquals(bookId);
 				
 				if(book.getStock() <= 0) {
 					throw new RuntimeException("在庫なし");		
@@ -27,7 +31,7 @@ public class Team18RentalService {
 		log.setUserId(userId);
 		log.setRentStart(LocalDate.now());
 		
-		Team18StatusRepository.save(log);
-		Team18BookRepository.save(book);
-	}*/
+		tsr.save(log);
+		tbr.save(book);
+	}
 }
