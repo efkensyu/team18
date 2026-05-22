@@ -5,11 +5,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form th:method="post" th:action="/team18librarylogin">
+	<p th:text="${error}"></p>	
+	<form th:method="post" th:action="@{/team18librarylogin}">
 	<input type="text" th:size="10" th:name="userEmail">
 	<input type="text" th:size="10" th:name="userPass">
 	<input type="submit" th:value="ログイン">
-	<p th:text="${error}"></p>
+	
 </form>
 </body>
 </html>
