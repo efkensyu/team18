@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.team18entity.Team18BookEntity;
 import com.example.demo.team18entity.Team18StatusEntity;
-import com.example.demo.team18repositories.Team18BookRepository;
+import com.example.demo.team18repositories.Team18RentalRepository;
 import com.example.demo.team18repositories.Team18StatusRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -15,10 +15,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Team18RentalService {
 	private final Team18StatusRepository tsr;
-	private final Team18BookRepository tbr;
+	private final Team18RentalRepository trr;
 	
 	public void rentBook(String bookId,Integer userId) {
-		Team18BookEntity book = tbr.findByBookIdEquals(bookId);
+		Team18BookEntity book = trr.findByBookIdEquals(bookId);
 				
 				if(book.getStock() <= 0) {
 					throw new RuntimeException("在庫なし");		
@@ -32,6 +32,6 @@ public class Team18RentalService {
 		log.setRentStart(LocalDate.now());
 		
 		tsr.save(log);
-		tbr.save(book);
+		trr.save(book);
 	}
 }

@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.team18entity.Team18BookEntity;
-import com.example.demo.team18service.Team18BookService;
+import com.example.demo.team18service.Team18SearchService;
 
 import lombok.RequiredArgsConstructor;
 
 @Controller		
 @RequiredArgsConstructor
-public class Team18BookController {		
-	private final Team18BookService team18bookservice;
+public class Team18SearchController {		
+	private final Team18SearchService team18searchservice;
 //	検索画面
 	@GetMapping("/book")			
 	public String index (Model model) {					
@@ -27,10 +27,10 @@ public class Team18BookController {
 	public String send (@RequestParam String keyword, Model model) {
 		List<Team18BookEntity> searchlist;
 		if(keyword.isEmpty()) {
-			searchlist = team18bookservice.findAllByOrderByBookIdAsc();
+			searchlist = team18searchservice.findAllByOrderByBookIdAsc();
 		}
 		else {
-			searchlist = team18bookservice.findByBookNmContaining(keyword);
+			searchlist = team18searchservice.findByBookNmContaining(keyword);
 		}
 		model.addAttribute("searchList",searchlist);
 		return "team18book/team18bookout";

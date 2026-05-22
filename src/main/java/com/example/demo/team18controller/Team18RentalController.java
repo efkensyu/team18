@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.team18entity.Team18BookEntity;
 import com.example.demo.team18entity.Team18StatusEntity;
 import com.example.demo.team18entity.Team18UserEntity;
-import com.example.demo.team18repositories.Team18BookRepository;
+import com.example.demo.team18repositories.Team18RentalRepository;
 import com.example.demo.team18repositories.Team18StatusRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -22,11 +22,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Team18RentalController{
 	private final Team18StatusRepository tsr;
-	private final Team18BookRepository tbr;
+	private final Team18RentalRepository trr;
 //	確認画面表示
 	@GetMapping("/team18rental")
 	public String rental (@RequestParam String bookId, Model model) {
-		Team18BookEntity book = tbr.findByBookIdEquals(bookId);
+		Team18BookEntity book = trr.findByBookIdEquals(bookId);
 		model.addAttribute("book",book);
 		return "team18rental/team18rentalin";
 	}

@@ -8,11 +8,11 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.team18entity.Team18BookEntity;
 
 @Repository
-public interface Team18BookRepository extends JpaRepository<Team18BookEntity,String>{
+public interface Team18SearchRepository extends JpaRepository<Team18BookEntity,String>{
 
 
 	public List<Team18BookEntity> findAllByOrderByBookIdAsc();
 	public List<Team18BookEntity> findByBookNmContaining(String keyword);
 	public Team18BookEntity findAllByBookId(String bookId);
-	public Team18BookEntity findByBookIdEquals(String bookId);
+	
 }
