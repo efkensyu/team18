@@ -13,7 +13,7 @@ public class Team18ReturnService {
 	private final Team18ReturnRepository returnRepository;
 	
 	public boolean isReturn(Team18UserEntity userEntity) {
-		return returnRepository.existsByStatusId(userEntity.getUserId());
+		return returnRepository.existsBylogId(userEntity.getUserId());
 	}
 
 }
