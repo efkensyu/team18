@@ -32,6 +32,22 @@ public class Team18LoginController {
 			return "team18login/team18login1";
 		}
 		session.setAttribute("loginUser", user);		
-		return "team18login/team18login2";
+		return "team18login/team18menu";
 	}
+	 @GetMapping("/team18register")
+	 public String registerPage() {
+
+	      return "team18login/Team18Register";
+	 }
+	@PostMapping("/team18register")
+	  public String registermenu(@RequestParam String userEmail,@RequestParam String userPass,
+			  @RequestParam String userNm, Model model) {
+
+	        tls.register(userEmail, userPass, userNm);
+
+	        model.addAttribute("msg", "登録完了しました");
+
+	        return "team18login/team18login1";
+	    }
+	
 }

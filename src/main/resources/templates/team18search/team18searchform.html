@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>検索</title>
+</head>
+<body>
+
+<h1>本検索</h1>
+
+<form th:action="@{team18search}" th:method="post">
+    <input type="text" name="keyword">
+    <button type="submit">検索</button>
+</form>
+<br>
+<th:block class="scrollbox">
+	<table>
+		<tr>
+			<th>本コード</th>
+	        <th>書名</th>
+	        <th>著者</th>
+	        <th>発行日</th>
+	        <th>在庫</th>
+	        <th>レンタル</th>
+	    </tr>
+	    <tr th:each="book : ${searchList}">
+	        <td th:text="${book.bookId}"></td>
+	        <td th:text="${book.bookNm}"></td>
+	        <td th:text="${book.author}"></td>
+	        <td th:text="${book.publishDate}"></td>
+	        <td th:text="${book.stock}"></td>
+	        <td>
+				<a th:href="@{/team18rental(bookId=${book.bookId})}">
+	                    レンタル
+	            </a>
+	        </td>
+	     </tr>
+	</table>
+</th:block> 
+</body>
+</html>

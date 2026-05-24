@@ -1,8 +1,11 @@
 package com.example.demo.team18controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.team18entity.Team18TitleEntity;
 import com.example.demo.team18service.team18GachaService;
 
 import lombok.RequiredArgsConstructor;
@@ -10,16 +13,27 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Controller
 public class Team18GachaController {
-	private final team18GachaService gachaService;
-	
-	@PostMapping(value = "/team18gacha", params = "donot")
-	public String sendback() {
-		return "team18menu/team18menu";
+	private final team18GachaService tgs;
+	String rarityname;
+	@GetMapping("/team18gacha")
+	public String gacha() {
+		return "team18gacha/Team18GachaPage";
 	}
-	
-	@PostMapping(value = "/team18gacha", params = "do")
-	public String gachado() {
-		gachaService.gacha(); //今は仮にgachaメソッドを置いているが、実際はgachaメソッド後の称号をユーザーに紐づけるメソッドを置きたい
-		return "team18menu/team18menu";
+	@PostMapping("/team18gacha")
+	public String gacharesult(Model model) {
+		Team18TitleEntity result = tgs.gacha();
+		String name= result.getTitleName();
+		int rarity= result.getRarity();
+		if(rarity == 1) {
+			rarityname = "R";
+		}else if(rarity == 2) {
+			rarityname = "SR";
+		}else {
+			rarityname = "SSR";
+		}
+		
+		model.addAttribute("rarityname",rarityname);
+		model.addAttribute("name",name);
+		return "team18gacha/team18gacharesult";
 	}
 }

@@ -1,6 +1,7 @@
 package com.example.demo.team18controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
@@ -9,13 +10,16 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class Team18MenuController {
 	
-	
-	@PostMapping(value = "/team18return", params = "search")
+	@GetMapping("/team18menu")
+	public String menu() {
+		return "team18menu/team18menupage";
+	}
+	@PostMapping(value = "/team18menu", params = "search")
 	public String sendsearch() {//()のところはセッションで持ってきたユーザーのModelAttributeを入れる
-		return "team18rental/team18kensakuin";
+		return "/team18search";
 	}
 	
-	@PostMapping(value = "/team18return", params = "return")
+	@PostMapping(value = "/team18menu", params = "return")
 	public String sendreturn() {//()のところはセッションで持ってきたユーザーのModelAttributeを入れる
 		return "team18return/team18return";
 	}

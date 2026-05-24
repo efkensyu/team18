@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.ofg">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method="get" th:action="@{/team18gacha}">
+		<p th:text="message"></p>
+		<p th:text="bookNm">
+		<th:block th:text="rentStart">
+		</th:block>
+		</p>
+		<input type="submit"  value="返却" />
+	</form>	
+</body>
+</html>

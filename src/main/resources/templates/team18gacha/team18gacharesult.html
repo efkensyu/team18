@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.ofg">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<form method="get" th:action="@{/team18menu}">
+	<h1>ガチャ結果</h1>
+	<th:bolck th:text="${rarityname}"></th:bolck>
+	<br>
+	<th:block th:text="${name}"></th:block>
+	<br>
+	<input type="submit"value="メニューに戻る" />
+	</form>
+</body>
+
+</html>
