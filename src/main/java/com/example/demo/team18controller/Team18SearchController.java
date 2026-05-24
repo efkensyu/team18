@@ -16,23 +16,27 @@ import lombok.RequiredArgsConstructor;
 @Controller		
 @RequiredArgsConstructor
 public class Team18SearchController {		
-	private final Team18SearchService team18searchservice;
+	private final Team18SearchService tss;
 //	検索画面
-	@GetMapping("/book")			
-	public String index (Model model) {					
-		return "team18book/team18bookin";		
+	@GetMapping("/team18search")			
+	public String index (Model model) {	
+	    List<Team18BookEntity> bookList =tss.findAllByOrderByBookIdAsc();
+
+        model.addAttribute("searchList", bookList);
+		
+		return "team18search/team18seachform";		
 	}
 //	検索結果表示画面	
-	@PostMapping("/book")
+	@PostMapping("/team18search")
 	public String send (@RequestParam String keyword, Model model) {
 		List<Team18BookEntity> searchlist;
 		if(keyword.isEmpty()) {
-			searchlist = team18searchservice.findAllByOrderByBookIdAsc();
+			searchlist = tss.findAllByOrderByBookIdAsc();
 		}
 		else {
-			searchlist = team18searchservice.findByBookNmContaining(keyword);
+			searchlist = tss.findByBookNmContaining(keyword);
 		}
 		model.addAttribute("searchList",searchlist);
-		return "team18book/team18bookout";
+		return "team18search/team18searchresult";
 	}
 }

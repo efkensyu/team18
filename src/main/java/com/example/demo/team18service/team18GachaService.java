@@ -22,10 +22,10 @@ public class team18GachaService {
 		
 		int rarity;
 //		R
-		if(number < 50 ) {
+		if(number < 40 ) {
 			rarity = 1;
 //		SR	
-		}else if(number < 80) {
+		}else if(number < 70) {
 			rarity = 2;
 //		SSR	
 		}else {
@@ -33,9 +33,9 @@ public class team18GachaService {
 		}
 		List<Team18TitleEntity> titles = ttr.findByrarity(rarity);
 		
-		int randomtitles = random.nextInt(titles.size());
+		int randomtitle = random.nextInt(titles.size());
 		
-		return titles.get(randomtitles);
+		return titles.get(randomtitle);
 	}
 }
 

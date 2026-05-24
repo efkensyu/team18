@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.ofg">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>新規登録</h1>
+	<form th:action="@{/team18register}" method="post">
+	    名前
+	    <input type="text" name="userNm">
+	    <br>
+	    メール
+	    <input type="email" name="userEmail">
+	    <br>
+	    パスワード
+	    <input type="password" name="userPass">
+	    <br>
+	    <button type="submit" name="register">
+	        登録
+	    </button>
+	</form>
+</body>
+</html>

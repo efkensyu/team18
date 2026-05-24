@@ -5,6 +5,7 @@
 <title>検索結果</title>
 </head>
 <body>
+<form th:action="@{/team18rental}" th:method="get">
 <table border="1">
 	<tr>
 	<th>本コード</th>
@@ -19,9 +20,10 @@
 			<td th:text="*{author}"></td>
 			<td th:text="*{publishDay}"></td>
 			<td th:text="*{stock}"></td>
-			<td><a th:href="@{/rental(bookId=*{bookId})}>レンタル</a></td>
+			<td><a th:href="@{/team18rental(bookId=*{bookId})}">レンタル</a></td>
 		</tr>
 	</th:block>
-</table>	
+</table>
+</form>	
 </body>
 </html>

@@ -14,7 +14,7 @@ import com.example.demo.team18entity.Team18BookEntity;
 import com.example.demo.team18entity.Team18StatusEntity;
 import com.example.demo.team18entity.Team18UserEntity;
 import com.example.demo.team18repositories.Team18RentalRepository;
-import com.example.demo.team18repositories.Team18StatusRepository;
+import com.example.demo.team18repositories.Team18StatusRepository.Team18StatusRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,7 +28,7 @@ public class Team18RentalController{
 	public String rental (@RequestParam String bookId, Model model) {
 		Team18BookEntity book = trr.findByBookIdEquals(bookId);
 		model.addAttribute("book",book);
-		return "team18rental/team18rentalin";
+		return "team18rental/team18rentalconfirm";
 	}
 //	確定画面
 	@PostMapping("/team18rental")
@@ -43,7 +43,7 @@ public class Team18RentalController{
 		log.setUserId(user.getUserId());
 		log.setRentStart(LocalDate.now());
 		tsr.save(log);		
-		return "menu";
+		return "/team18menu";
 	}
 }
 

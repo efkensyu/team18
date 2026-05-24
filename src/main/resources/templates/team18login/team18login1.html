@@ -5,6 +5,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<script th:if="${msg}">
+	    alert('[[${msg}]]');
+	</script>
 	<p th:text="${error}"></p>	
 	<form th:method="post" th:action="@{/team18librarylogin}">
 	<input type="text" th:size="10" th:name="userEmail">
@@ -12,5 +15,6 @@
 	<input type="submit" th:value="ログイン">
 	
 </form>
+<a th:href="@{/team18register}">新規登録</a>
 </body>
 </html>
