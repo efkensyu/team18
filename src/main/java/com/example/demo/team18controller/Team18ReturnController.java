@@ -34,12 +34,12 @@ public class Team18ReturnController {
 	
 	@PostMapping(value = "/team18return", params = "return")
 	public String sendreturn(HttpSession session,Model model) {
-		Team18BookEntity bookNm = null;
+		Team18BookEntity book = null;
 		LocalDate rentStart = null;
 		String message;
 		Team18UserEntity user =(Team18UserEntity)session.getAttribute("loginUser");
 		Integer userId = user.getUserId();
-
+		
 		Team18StatusEntity judge = trs.isReturn(userId);
 
 		
@@ -47,13 +47,13 @@ public class Team18ReturnController {
 			message = "現在貸出中の本はございません";
 		} else {
 			message = "返却しますか?";
-			bookNm = tsr.findAllByBookId(judge.getBookId());
+			book = tsr.findAllByBookId(judge.getBookId());
+			
 			rentStart = judge.getRentStart();
 		}
 		model.addAttribute("message",message);
-		model.addAttribute("bookNm",bookNm);
+		model.addAttribute("bookNm",book);
 		model.addAttribute("rentStart",rentStart);
-		
 		return "team18menu/team18return";
 	}
 }
