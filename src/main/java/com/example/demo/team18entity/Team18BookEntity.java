@@ -1,9 +1,11 @@
 package com.example.demo.team18entity;
 
-import jakarta.persistence.Entity;
+import java.time.LocalDate;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import lombok.Data;
 
@@ -13,10 +15,11 @@ import lombok.Data;
 
 public class Team18BookEntity {
 	@Id
-	private String bookId;
+	private Integer bookId;
 	private String bookNm;
 	private String author;
-	private Integer publishDay;
+	private LocalDate publishDay;
+	@Column(name = "zaiko")
 	private Integer stock;
 	private String cover;
 }

@@ -10,9 +10,9 @@
 	</script>
 	<p th:text="${error}"></p>	
 	<form th:method="post" th:action="@{/team18librarylogin}" th:object="${team18LoginForm}">
-	<input type="text" th:size="10" th:name="*{userEmail}">
+	<input type="text" th:size="10" th:field="*{userEmail}">
 	<th:block th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></th:block>
-	<input type="text" th:size="10" th:name="*{userPass}">
+	<input type="text" th:size="10" th:field="*{userPass}">
 	<th:block th:if="${#fields.hasErrors('userPass')}" th:errors="*{userPass}"></th:block>
 	<input type="submit" th:value="ログイン">
 	

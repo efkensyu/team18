@@ -16,7 +16,7 @@ public class Team18MenuController {
 	}
 	@PostMapping(value = "/team18menu", params = "search")
 	public String sendsearch() {//()のところはセッションで持ってきたユーザーのModelAttributeを入れる
-		return "/team18search";
+		return "team18search/team18searchform";
 	}
 	
 	@PostMapping(value = "/team18menu", params = "return")
