@@ -1,4 +1,4 @@
-package com.example.demo.team18repositories.Team18StatusRepository;
+package com.example.demo.team18repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
