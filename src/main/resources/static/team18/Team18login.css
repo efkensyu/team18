@@ -6,9 +6,8 @@ body {
 
     background:
         radial-gradient(circle at top,
-        #2f4f7f 0%,
-        #1a2c4f 45%,
-        #0c1528 100%);
+        #2f4f7f 20%,
+        #6379a4 60%);
 
     min-height: 100vh;
 
