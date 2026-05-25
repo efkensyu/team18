@@ -42,7 +42,7 @@ public class Team18ReturnController {
 		
 		Team18StatusEntity judge = trs.isReturn(userId);
 
-		
+		System.out.println(judge.getBookId());
 		if(judge == null) {
 			message = "現在貸出中の本はございません";
 		} else {
@@ -54,7 +54,7 @@ public class Team18ReturnController {
 		model.addAttribute("message",message);
 		model.addAttribute("book",book);
 		model.addAttribute("rentStart",rentStart);
-		return "team18return/team18returnconfirm";
+		return "team18return/Team18returnconfirm";
 	}
 }
 
