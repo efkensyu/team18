@@ -17,7 +17,7 @@ public class Team18RentalService {
 	private final Team18StatusRepository tsr;
 	private final Team18RentalRepository trr;
 	
-	public void rentBook(String bookId,Integer userId) {
+	public void rentBook(Integer bookId,Integer userId) {
 		Team18BookEntity book = trr.findByBookIdEquals(bookId);
 				
 				if(book.getStock() <= 0) {
