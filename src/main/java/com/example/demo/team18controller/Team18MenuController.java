@@ -21,7 +21,7 @@ public class Team18MenuController {
 	
 	@PostMapping(value = "/team18menu", params = "return")
 	public String sendreturn() {//()のところはセッションで持ってきたユーザーのModelAttributeを入れる
-		return "team18return/team18return";
+		return "team18return/team18returnconfirm";
 	}
 
 

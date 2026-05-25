@@ -6,14 +6,17 @@
 <link rel="stylesheet" type="text/css" href="team18/Team18return.css">
 </head>
 <body>
+	<p th:text="${message}"></p>
+	<div th:if="${book!=null}">
 	<form method="get" th:action="@{/team18gacha}">
-		<p th:text="message"></p>
-		<img src="src/main/resouces/static/team18/${book.cover}" width=200>
+		
+		<img th:src="@{'/team18/' + ${book.cover}}" width=200>
 		<p th:text="${book.bookNm}">
-		<th:block th:text="rentStart">
+		<th:block th:text="${rentStart}">
 		</th:block>
 		</p>
 		<input type="submit"  value="返却" />
 	</form>	
+	</div>
 </body>
 </html>

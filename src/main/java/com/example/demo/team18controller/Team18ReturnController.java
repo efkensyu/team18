@@ -25,11 +25,11 @@ public class Team18ReturnController {
 	
 	@GetMapping("/team18return")
 	public String bookreturn() {
-		return "team18retrun/team18retrunconfirm";
+		return "team18return/team18returnconfirm";
 	}
 	@PostMapping(value = "/team18return", params = "menu")
 	public String sendback() {
-		return "team18manu/team18manupage";
+		return "team18menu/team18menupage";
 	}
 	
 	@PostMapping(value = "/team18return", params = "return")
@@ -54,7 +54,7 @@ public class Team18ReturnController {
 		model.addAttribute("message",message);
 		model.addAttribute("book",book);
 		model.addAttribute("rentStart",rentStart);
-		return "team18menu/team18return";
+		return "team18return/team18returnconfirm";
 	}
 }
 
