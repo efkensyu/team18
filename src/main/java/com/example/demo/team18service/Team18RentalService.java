@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.team18entity.Team18BookEntity;
 import com.example.demo.team18entity.Team18StatusEntity;
 import com.example.demo.team18repositories.Team18RentalRepository;
-import com.example.demo.team18repositories.Team18StatusRepository.Team18StatusRepository;
+import com.example.demo.team18repositories.Team18StatusRepository;
 
 import lombok.RequiredArgsConstructor;
 
