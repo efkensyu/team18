@@ -46,7 +46,7 @@ public class Team18LoginController {
 			return "team18login/team18login1";
 		}
 		session.setAttribute("loginUser", user);
-		return "team18menu/team18menupage";
+		return "redirect:/team18menu";
 	}
 
 	@GetMapping("/team18register")

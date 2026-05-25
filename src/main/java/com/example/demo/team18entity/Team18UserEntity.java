@@ -18,5 +18,5 @@ public class Team18UserEntity {
 	private String userNm;
 	private String userEmail;
 	private String userPass;
-	private Integer titleId;
+	private Long titleId;
 }

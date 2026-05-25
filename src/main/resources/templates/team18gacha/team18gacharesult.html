@@ -6,16 +6,35 @@
 	<title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="team18/Team18gacha.css">
 </head>
-
 <body>
-	<form method="get" th:action="@{/team18menu}">
-	<h1>ガチャ結果</h1>
-	<th:bolck th:text="${rarityname}"></th:bolck>
-	<br>
-	<th:block th:text="${name}"></th:block>
-	<br>
-	<input type="submit"value="メニューに戻る" />
-	</form>
+<div class="gacha-container">
+    <div class="effect">
+        ガチャを開封中...
+    </div>
+    <div class="result" class="hidden">
+        <h1>ガチャ結果</h1>
+        <div class="rarity"
+             th:text="${rarityname}">
+        </div>
+        <div class="title-name"
+             th:text="${name}">
+        </div>
+        <form method="get"
+              th:action="@{/team18menu}">
+            <button type="submit">
+                メニューに戻る
+            </button>
+        </form>
+    </div>
+</div>
+<script>
+setTimeout(() => {
+    document.getElementById("effect")
+            .style.display = "none";
+    document.getElementById("result")
+            .classList.remove("hidden");
+}, 2500);
+</script>
 </body>
 
 </html>

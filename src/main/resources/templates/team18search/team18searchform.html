@@ -27,9 +27,11 @@
 			             name="bookId"
 			             th:value="${book.bookId}">
 
-			      <button type="submit">
-			          レンタル
-			      </button>
+						 <button type="submit"
+						             th:disabled="${book.stock <= 0}"
+						             th:text="${book.stock <= 0} ? '在庫なし' : '借りる'">
+						         レンタル
+						     </button>
 				     </div>
 	 </div>  </form>
 

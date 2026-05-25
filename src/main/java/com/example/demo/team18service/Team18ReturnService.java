@@ -1,5 +1,7 @@
 package com.example.demo.team18service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.demo.team18entity.Team18StatusEntity;
@@ -13,17 +15,11 @@ public class Team18ReturnService {
 	private final Team18ReturnRepository trr;
 
 	
-	public Team18StatusEntity isReturn(Integer userId) {
+	public List<Team18StatusEntity> findRentalList(Integer userId) {
 	
-		Team18StatusEntity tse = trr.findByuserId(userId);
-		
-		if(tse == null){
-			return null;
-		}
-		
-		trr.delete(tse);
-		
-		return tse;
-	}
-}	
-
+		 return trr.findByUserId(userId);
+    }
+	public void returnBook(Integer logId) {
+        trr.deleteById(logId);
+    }
+}

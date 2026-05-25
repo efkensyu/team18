@@ -6,14 +6,24 @@
 <link rel="stylesheet" type="text/css" href="team18/Team18return.css">
 </head>
 <body>
-	<form method="get" th:action="@{/team18gacha}">
-		<p th:text="message"></p>
-		<img src="src/main/resouces/static/team18/${book.cover}" width=200>
-		<p th:text="${book.bookNm}">
-		<th:block th:text="rentStart">
-		</th:block>
-		</p>
-		<input type="submit"  value="返却" />
-	</form>	
+	<form th:action="@{/team18return}" method="post">
+	    <div th:if="${#lists.isEmpty(rentalList)}">
+	        現在貸出中の本はございません
+	    </div>
+	    <div th:each="rental : ${rentalList}">
+	    <label>
+	    <input type="radio"name="logId"th:value="${rental.logId}">
+	     本ID：
+	    <span th:text="${rental.bookId}"></span>
+	    貸出日：
+	    <span th:text="${rental.rentStart}"></span>
+	    </label>
+	    </div>
+	    <button type="submit"
+	            name="return"
+	            th:if="${!#lists.isEmpty(rentalList)}">
+	        選択した本を返却
+	    </button>
+	</form>
 </body>
 </html>

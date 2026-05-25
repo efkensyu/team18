@@ -14,13 +14,14 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class Team18GachaController {
 	private final team18GachaService tgs;
-	String rarityname;
+	
 	@GetMapping("/team18gacha")
 	public String gacha() {
 		return "team18gacha/Team18GachaPage";
 	}
 	@PostMapping("/team18gacha")
 	public String gacharesult(Model model) {
+		String rarityname;
 		Team18TitleEntity result = tgs.gacha();
 		String name= result.getTitleName();
 		int rarity= result.getRarity();

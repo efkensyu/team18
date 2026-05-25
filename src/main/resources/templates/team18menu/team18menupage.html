@@ -7,12 +7,18 @@
 	<link rel="stylesheet" type="text/css" href="team18/Team18menu.css">
 </head>
 
-<body>
+<br>
+	<div class="menu-container">
+		<p class="title-name"
+		   th:if="${titleName != null}"
+		   th:text="${titleName}">
+		</p>
+		<h1 class="user-name" th:text="${user.userNm}"></h1>
 	<form method="post" th:action="@{/team18menu}">
 		<input type="submit" name="search" value="本を検索する・借りる" />
 		<input type="submit" name="return" value="本を返却する" />
 	</form>
-
+</div>
 </body>
 
 </html>
