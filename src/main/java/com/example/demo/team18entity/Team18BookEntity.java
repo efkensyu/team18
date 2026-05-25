@@ -1,8 +1,9 @@
 package com.example.demo.team18entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import lombok.Data;
 
@@ -17,4 +18,5 @@ public class Team18BookEntity {
 	private String author;
 	private Integer publishDay;
 	private Integer stock;
+	private Integer cover;
 }

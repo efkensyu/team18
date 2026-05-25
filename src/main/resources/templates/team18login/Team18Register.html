@@ -6,15 +6,18 @@
 </head>
 <body>
 	<h1>新規登録</h1>
-	<form th:action="@{/team18register}" method="post">
+	<form th:action="@{/team18register}" method="post" th:object="${team18RegisterForm}">
 	    名前
-	    <input type="text" name="userNm">
+	    <input type="text" name="*{userNm}">
+		<th:block th:if="${#fields.hasErrors('userNm')}" th:errors="*{userNm}"></th:block>
 	    <br>
 	    メール
-	    <input type="email" name="userEmail">
+	    <input type="email" name="*{userEmail}">
+		<th:block th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></th:block>
 	    <br>
 	    パスワード
-	    <input type="password" name="userPass">
+	    <input type="password" name="*{userPass}">
+		<th:block th:if="${#fields.hasErrors('userPass')}" th:errors="*{userPass}"></th:block>
 	    <br>
 	    <button type="submit" name="register">
 	        登録

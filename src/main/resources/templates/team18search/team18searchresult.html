@@ -6,24 +6,20 @@
 </head>
 <body>
 <form th:action="@{/team18rental}" th:method="get">
-<table border="1">
-	<tr>
-	<th>本コード</th>
-	<th>書名</th>
-	<th>著者</th>
-	<th>発行日</th>
-	<th>在庫</th>
-	</tr>
-	<th:block th:each="data : ${searchList}">
-		<tr th:object="${data}">
-			<td th:text="*{bookNm}"></td>
-			<td th:text="*{author}"></td>
-			<td th:text="*{publishDay}"></td>
-			<td th:text="*{stock}"></td>
-			<td><a th:href="@{/team18rental(bookId=*{bookId})}">レンタル</a></td>
-		</tr>
-	</th:block>
-</table>
+	<th:block class="scrollbox" th>
+		<div class="book-card" th:each="book : ${searchList}">
+		<img class="book-image" th:src=	"@{'/team18/' + ${book.cover}}"alt="本の表紙">
+		<div class="book-info">
+		          <h2 th:text="${book.bookNm}">本のタイトル</h2>
+		          <p th:text="'作者：' + ${book.author}">作者</p>
+		          <p th:text="'発行日：' + ${book.publishDay}">発行日</p>
+		          <p th:text="'在庫：' + ${book.stock}">在庫</p>
+				  <a th:href="@{/team18rental(bookId=${book.bookId})}">
+		                    レンタル
+		            </a>
+		     </div>
+		 </div>
+	</th:block> 
 </form>	
 </body>
 </html>
