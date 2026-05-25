@@ -52,7 +52,7 @@ public class Team18ReturnController {
 			rentStart = judge.getRentStart();
 		}
 		model.addAttribute("message",message);
-		model.addAttribute("bookNm",book);
+		model.addAttribute("book",book);
 		model.addAttribute("rentStart",rentStart);
 		return "team18menu/team18return";
 	}
