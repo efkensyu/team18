@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.team18entity.Team18BookEntity;
 
 @Repository
-public interface Team18SearchRepository extends JpaRepository<Team18BookEntity,String>{
+public interface Team18SearchRepository extends JpaRepository<Team18BookEntity,Integer>{
 
 
 	public List<Team18BookEntity> findAllByOrderByBookIdAsc();

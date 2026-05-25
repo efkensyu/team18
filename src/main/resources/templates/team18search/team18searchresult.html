@@ -8,7 +8,7 @@
 <form th:action="@{/team18rental}" th:method="get">
 	<th:block class="scrollbox" th>
 		<div class="book-card" th:each="book : ${searchList}">
-		<img class="book-image" th:src=	"@{'/team18/' + ${book.cover}}"alt="本の表紙">
+		<img class="book-image" th:src=	"@{/team18/{file}(file=${book.cover})}"alt="本の表紙">
 		<div class="book-info">
 		          <h2 th:text="${book.bookNm}">本のタイトル</h2>
 		          <p th:text="'作者：' + ${book.author}">作者</p>

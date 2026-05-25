@@ -23,8 +23,13 @@ public class Team18LoginController {
 
 	//	ログイン画面表示
 	@GetMapping("/team18librarylogin")
-	public String loginpage() {
-		return "team18login/team18login1";
+	public String loginpage(Model model) {
+
+	    model.addAttribute(
+	            "team18LoginForm",
+	            new Team18LoginForm());
+
+	    return "team18login/team18login1";
 	}
 
 	//	ログイン認証
@@ -36,24 +41,29 @@ public class Team18LoginController {
 			return "team18login/team18login1";
 		}
 		if (user == null) {
-
-			model.addAttribute("errar", "メールアドレスまたはパスワードがまちがっています。");
+			 model.addAttribute("team18LoginForm", new Team18LoginForm());
+			model.addAttribute("error", "メールアドレスまたはパスワードがまちがっています。");
 			return "team18login/team18login1";
 		}
 		session.setAttribute("loginUser", user);
-		return "team18login/team18menu";
+		return "team18menu/team18menupage";
 	}
 
 	@GetMapping("/team18register")
-	public String registerPage() {
+	public String registerPage(Model model) {
 
-		return "team18login/Team18Register";
+	    model.addAttribute(
+	            "team18RegisterForm",
+	            new Team18RegisterForm());
+
+	    return "team18login/Team18Register";
 	}
 
 	@PostMapping("/team18register")
 	public String registermenu(@ModelAttribute Team18RegisterForm team18RegisterForm, Model model,
 			BindingResult result) {
 		if (result.hasErrors()) {
+			 model.addAttribute("team18RegisterForm", team18RegisterForm);
 			return "team18login/Team18Register";
 		}
 
@@ -61,7 +71,7 @@ public class Team18LoginController {
 				team18RegisterForm.getUserNm());
 
 		model.addAttribute("msg", "登録完了しました");
-
+		model.addAttribute("team18LoginForm", new Team18LoginForm());
 		return "team18login/team18login1";
 	}
 

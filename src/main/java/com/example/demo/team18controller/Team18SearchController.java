@@ -24,7 +24,7 @@ public class Team18SearchController {
 
         model.addAttribute("searchList", bookList);
 		
-		return "team18search/team18seachform";		
+		return "team18search/team18searchform";		
 	}
 //	検索結果表示画面	
 	@PostMapping("/team18search")
