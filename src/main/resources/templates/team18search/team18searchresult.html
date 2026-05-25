@@ -6,21 +6,38 @@
 <link rel="stylesheet" type="text/css" href="team18/Team18search.css">
 </head>
 <body>
-<form th:action="@{/team18rental}" th:method="get">
-	<th:block class="scrollbox" th>
-		<div class="book-card" th:each="book : ${searchList}">
-		<img class="book-image" th:src=	"@{/team18/{file}(file=${book.cover})}"alt="本の表紙">
-		<div class="book-info">
-		          <h2 th:text="${book.bookNm}">本のタイトル</h2>
-		          <p th:text="'作者：' + ${book.author}">作者</p>
-		          <p th:text="'発行日：' + ${book.publishDay}">発行日</p>
-		          <p th:text="'在庫：' + ${book.stock}">在庫</p>
-				  <a th:href="@{/team18rental(bookId=${book.bookId})}">
-		                    レンタル
-		            </a>
-		     </div>
-		 </div>
-	</th:block> 
-</form>	
+	<div class="book-card"
+	     th:each="book : ${searchList}">
+
+	    <img class="book-image"
+	         th:src="@{/team18/{file}(file=${book.cover})}"
+	         alt="本の表紙">
+
+	    <div class="book-info">
+
+	        <h2 th:text="${book.bookNm}"></h2>
+
+	        <p th:text="'作者：' + ${book.author}"></p>
+
+	        <p th:text="'発行日：' + ${book.publishDay}"></p>
+
+	        <p th:text="'在庫：' + ${book.stock}"></p>
+
+	        <form th:action="@{/team18rental}"
+	              method="post">
+
+	            <input type="hidden"
+	                   name="bookId"
+	                   th:value="${book.bookId}">
+
+	            <button type="submit">
+	                レンタル
+	            </button>
+
+	        </form>
+
+	        <a th:href="@{/team18search}">
+	            戻る
+	        </a></div></div>
 </body>
 </html>

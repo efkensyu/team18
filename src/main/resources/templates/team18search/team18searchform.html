@@ -15,18 +15,24 @@
 </form>
 <br>
 <th:block class="scrollbox" th>
+	<form th:action="@{/team18rental}" method="post">
 	<div class="book-card" th:each="book : ${books}">
 	<img class="book-image" th:src=	"@{'/team18/' + ${book.cover}}"alt="本の表紙">
 	<div class="book-info">
 	          <h2 th:text="${book.bookNm}"></h2>
 	          <p th:text="'作者：' + ${book.author}"></p>
 	          <p th:text="'発行日：' + ${book.publishDay}"></p>
-	          <p th:text="'在庫：' + ${book.stock}"></p>
-			  <a th:href="@{/team18rental(bookId=${book.bookId})}">
-	                    レンタル
-	            </a>
-	     </div>
-	 </div>
+	          <p th:text="'在庫：' + ${book.stock}"></p>		  		  
+			  <input type="hidden"
+			             name="bookId"
+			             th:value="${book.bookId}">
+
+			      <button type="submit">
+			          レンタル
+			      </button>
+				     </div>
+	 </div>  </form>
+
 </th:block> 
 </body>
 </html>
