@@ -7,7 +7,7 @@
 <body>
 	<form method="get" th:action="@{/team18gacha}">
 		<p th:text="message"></p>
-		<img src="${book.cover}" width=200>
+		<img src="src/main/resouces/static/team18/${book.cover}" width=200>
 		<p th:text="${book.bookNm}">
 		<th:block th:text="rentStart">
 		</th:block>
