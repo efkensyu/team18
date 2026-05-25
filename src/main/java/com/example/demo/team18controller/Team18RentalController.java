@@ -25,14 +25,14 @@ public class Team18RentalController{
 	private final Team18RentalRepository trr;
 //	確認画面表示
 	@GetMapping("/team18rental")
-	public String rental (@RequestParam String bookId, Model model) {
+	public String rental (@RequestParam Integer bookId, Model model) {
 		Team18BookEntity book = trr.findByBookIdEquals(bookId);
 		model.addAttribute("book",book);
 		return "team18rental/team18rentalconfirm";
 	}
 //	確定画面
 	@PostMapping("/team18rental")
-	public String go (@RequestParam String bookId,HttpSession session){
+	public String go (@RequestParam Integer bookId,HttpSession session){
 		
 		Team18UserEntity user =(Team18UserEntity)
         session.getAttribute("loginUser");

@@ -14,7 +14,7 @@ import lombok.Data;
 @Data
 public class Team18StatusEntity {
 		private Integer userId;
-		private String bookId;
+		private Integer bookId;
 		private LocalDate rentStart;
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
