@@ -6,15 +6,17 @@
 <link rel="stylesheet" type="text/css" href="team18/Team18return.css">
 </head>
 <body>
-	<p th:text="${message}"></p>
-	<div th:if="${book!=null}">
-	<form method="get" th:action="@{/team18gacha}">
-		
+	<form th:if="${book!=null}" method="get" th:action="@{/team18gacha}">
 		<img th:src="'/team18/' + ${book.cover}" width=200>
 		<p th:text="${book.bookNm}"></p>
 		<th:block th:text="${rentStart}"></th:block>
+		<p th:text="${message}"></p>
 		<input type="submit"  value="返却" />
 	</form>
-	</div>	
+		
+		<form th:if="${message.equals('現在貸出中の本はございません')}" method="post" th:action="@{/team18return}">
+			<p th:text="${message}"></p>
+			<input type="submit" name="menu" value="メニューに戻る"/>
+		</form>
 </body>
 </html>
