@@ -83,7 +83,6 @@ public class Team18ReturnController {
 
             return "team18/team18return/team18returnconfirm";
         }
-
         // 返却処理
         trs.returnBook(logId);
 

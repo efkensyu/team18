@@ -14,7 +14,9 @@ h1 {
     letter-spacing: 4px;
     text-shadow: 0 0 12px #4aa3ff;
 }
-
+button.back{
+	text-align: center;
+}
 
 form {
     text-align: center;
