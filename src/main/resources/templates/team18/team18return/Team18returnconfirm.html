@@ -1,31 +1,59 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.ofg">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="team18/Team18return.css">
+<title>返却画面</title>
+<link rel="stylesheet" th:href="@{/team18/Team18return.css}">
 </head>
 <body>
 
-	<form th:action="@{/team18return}" method="post">
-	    <div th:if="${#lists.isEmpty(rentalList)}">
-	        現在貸出中の本はございません
-	    </div>
-	    <div th:each="rental : ${rentalList}">
-	    <label>
-	    <input type="radio"name="logId"th:value="${rental.logId}">
-	     本ID：
-	    <span th:text="${rental.bookId}"></span>
-	    貸出日：
-	    <span th:text="${rental.rentStart}"></span>
-	    </label>
-	    </div>
-	    <button type="submit"
-	            name="return"
-	            th:if="${!#lists.isEmpty(rentalList)}">
-	        選択した本を返却
-	    </button>
-	</form>
+<form th:action="@{/team18return}" method="post">
+
+    <div th:if="${#lists.isEmpty(statusList)}">
+        現在貸出中の本はございません
+    </div>
+
+    <div class="book-card"
+         th:each="status, stat : ${rentalList}">
+
+        <label>
+            <input type="radio"
+                   name="logId"
+                   th:value="${status.logId}">
+			</label>
+            <img class="book-image"
+                 th:src="@{'/team18/' + ${bookList[stat.index].cover}}"
+                 alt="本の表紙">
+
+            <div class="book-info">
+
+                <h3 th:text="${bookList[stat.index].bookNm}">
+                    本の名前
+                </h3>
+
+
+                <p>
+                    作者：
+                    <span th:text="${bookList[stat.index].author}"></span>
+                </p>
+
+                <p>
+                    貸出日：
+                    <span th:text="${status.rentStart}"></span>
+                </p>
+
+            </div>
+        
+
+    </div>
+
+    <button type="submit"
+            name="return"
+            th:if="${!#lists.isEmpty(rentalList)}">
+        選択した本を返却
+    </button>
+
+</form>
 
 </body>
 </html>

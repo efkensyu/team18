@@ -5,7 +5,7 @@ h2.user-name {
 
 	position: fixed;
 
-	top: 25px;
+	top: 40px;
 
 	right: 60px;
 
@@ -14,6 +14,29 @@ h2.user-name {
 	color: white;
 
 	font-size: 28px;
+
+	letter-spacing: 2px;
+
+	text-shadow:
+		0 0 10px rgba(255,255,255,0.8),
+		0 0 20px rgba(120,220,255,0.8);
+
+	z-index: 2;
+}
+/*称号*/
+p.title-name {
+
+	position: fixed;
+
+	top: 20px;
+
+	right: 60px;
+
+	margin: 0;
+
+	color: white;
+
+	font-size: 16px;
 
 	letter-spacing: 2px;
 

@@ -1,5 +1,6 @@
 package com.example.demo.team18.team18controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.http.HttpSession;
@@ -10,8 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.team18.team18entity.Team18BookEntity;
 import com.example.demo.team18.team18entity.Team18StatusEntity;
 import com.example.demo.team18.team18entity.Team18UserEntity;
+import com.example.demo.team18.team18repositories.Team18BookRepository;
 import com.example.demo.team18.team18service.Team18ReturnService;
 
 import lombok.RequiredArgsConstructor;
@@ -20,12 +23,12 @@ import lombok.RequiredArgsConstructor;
 @Controller	
 public class Team18ReturnController {
 	private final Team18ReturnService trs;
-
+	private final Team18BookRepository tbr;
 	
 	@GetMapping("/team18return")
 	public String bookreturn() {
 
-		return "team18/team18return/team18returnpage";
+		return "team18return/team18returnpage";
 	}
 	@PostMapping(value = "/team18return", params = "menu")
 	public String sendback() {
@@ -38,18 +41,29 @@ public class Team18ReturnController {
 	
 		Team18UserEntity user =(Team18UserEntity)session.getAttribute("loginUser");
 	
-		
+		Integer userId = user.getUserId();
 
 		List<Team18StatusEntity> rentalList = trs.findRentalList(user.getUserId());
-		 model.addAttribute("rentalList", rentalList);
+		
+		 
+		 List<Team18BookEntity> bookList = new ArrayList<>();
+		 for (Team18StatusEntity status : rentalList) {
+		        Team18BookEntity book =
+		                tbr.findByBookIdEquals(status.getBookId());
 
-		    return "team18/team18return/team18returnconfirm";
+		        bookList.add(book);
+		    }
+		   model.addAttribute("rentalList", rentalList);
+		    model.addAttribute("bookList", bookList);
+		 
+		    return "team18return/team18returnconfirm";
 }	
 
     @PostMapping(value = "/team18return", params = "return")
     public String sendreturn(@RequestParam Integer logId) {
 
     trs.returnBook(logId);
+    
 
     return "redirect:/team18gacha";
 
