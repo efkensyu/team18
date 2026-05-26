@@ -15,6 +15,7 @@
 </form>
 <br>
 <th:block class="scrollbox">
+	<form th:action="@{/team18rental}" method="post">
 	<div class="book-card" th:each="book : ${searchList}">
 	<img class="book-image" th:src=	"@{'/team18/' + ${book.cover}}"alt="本の表紙">
 	<div class="book-info">
@@ -33,7 +34,7 @@
 						     </button>
 				     </div>
 	 </div>  
-
+	</form>
 </th:block> 
 </body>
 </html>
