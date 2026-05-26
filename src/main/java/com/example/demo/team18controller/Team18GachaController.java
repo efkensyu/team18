@@ -23,7 +23,7 @@ public class Team18GachaController {
 	public String gacharesult(Model model) {
 		String rarityname;
 		Team18TitleEntity result = tgs.gacha();
-		String name= result.getTitleName();
+		String name= result.getTitleNm();
 		int rarity= result.getRarity();
 		if(rarity == 1) {
 			rarityname = "R";

@@ -23,6 +23,6 @@ public class Team18UserService {
 	            return null;
 	        }
 
-	        return title.getTitleName();
+	        return title.getTitleNm();
 	    }
 }

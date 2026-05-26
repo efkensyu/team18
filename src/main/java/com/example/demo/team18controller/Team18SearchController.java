@@ -23,7 +23,10 @@ public class Team18SearchController {
 	    List<Team18BookEntity> bookList =tss.findAllByOrderByBookIdAsc();
 
         model.addAttribute("searchList", bookList);
-		
+        System.out.println(bookList.size());
+        if(bookList.isEmpty()) {
+        	System.out.println("nullだよ");
+        }
 		return "team18search/team18searchform";		
 	}
 //	検索結果表示画面	

@@ -12,6 +12,6 @@ import lombok.Data;
 public class Team18TitleEntity {
 	@Id
 	private Long titleId;
-	private String titleName;
+	private String titleNm;
 	private int rarity;
 }
