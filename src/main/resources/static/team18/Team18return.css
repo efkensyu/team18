@@ -36,6 +36,13 @@ p {
     font-weight: bold;
 }
 
+.book-image{
+    width:120px;
+    height:auto;
+	display:block;
+	margin:0 auto;
+}
+
 input[type="submit"] {
     width: 100%;
     margin-top: 18px;
