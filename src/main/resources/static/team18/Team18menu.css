@@ -22,7 +22,7 @@ p.title-name {
 	right: 100px;
 	margin: 0;
 	color: gold;
-	font-size: 16px;
+	font-size: 20px;
 	letter-spacing: 2px;
 	text-shadow:
 		0 0 10px rgba(255,255,255,0.8),
@@ -32,49 +32,32 @@ p.title-name {
 
 /* ===== 背景画像 ===== */
 body {
-
 	margin: 0;
 	padding: 0;
-
 	font-family: "Segoe UI", "Yu Gothic", sans-serif;
-
 	min-height: 100vh;
-
 	display: flex;
-
 	justify-content: center;
-
 	align-items: center;
-
 	overflow: hidden;
-
 	position: relative;
 
 	/* 背景画像 */
 	background-image:
-		url("../../team18/Team18libraryillustration.png");
-		
-
-		background-size: 100vw 100vh;
-
+		url("../../team18/Team18libraryillustration.png");		
+	background-size: 100vw 100vh;
 	background-position: center;
-
 	background-repeat: no-repeat;
 }
 
 /* ===== 背景の発光レイヤー ===== */
 body::before {
-
 	content: "";
-
 	position: fixed;
-
 	top: 0;
 	left: 0;
-
 	width: 100%;
 	height: 100%;
-
 	background:
 
 		/* 白い発光 */
@@ -95,123 +78,83 @@ body::before {
 		rgba(10, 30, 60, 0.28);
 
 	z-index: 0;
-
 	pointer-events: none;
 }
 
 /* ===== メニューコンテナ ===== */
 form {
-
 	width: 420px;
-
 	padding: 50px;
-	
 	box-sizing: border-box;
-
 	background: rgba(255,255,255,0.18);
-
 	border-radius: 24px;
-
 	border: 2px solid rgba(255,255,255,0.35);
-
 	backdrop-filter: blur(12px);
-
 	box-shadow:
 		0 0 25px rgba(255,255,255,0.2),
 		0 0 50px rgba(0,180,255,0.18);
-
 	position: relative;
-
 	z-index: 1;
-
 	display: flex;
-
 	flex-direction: column;
-
 	gap: 30px;
 }
 
 /* ===== コーナー装飾 ===== */
 form::before,
 form::after {
-
 	content: "";
-
 	position: absolute;
-
 	width: 40px;
 	height: 40px;
-
 	border-color: #ffffff;
 }
 
 form::before {
-
 	top: 15px;
 	left: 15px;
-
 	border-top: 3px solid;
 	border-left: 3px solid;
 }
 
 form::after {
-
 	bottom: 15px;
 	right: 15px;
-
 	border-bottom: 3px solid;
 	border-right: 3px solid;
 }
 
 /* ===== ボタン ===== */
 input[type="submit"] {
-
 	padding: 18px;
-
 	border: none;
-
 	border-radius: 16px;
-
 	background:
 		linear-gradient(
 			135deg,
 			#8be9ff,
 			#79aeff
 		);
-
 	color: white;
-
 	font-size: 20px;
-
 	font-weight: bold;
-
 	letter-spacing: 2px;
-
 	cursor: pointer;
-
 	transition: 0.3s;
-
 	box-shadow:
 		0 0 15px rgba(255,255,255,0.25);
-
 	position: relative;
-
 	overflow: hidden;
 }
 
 /* ===== 光エフェクト ===== */
 input[type="submit"]::before {
-
 	content: "";
-
 	position: absolute;
-
 	top: 0;
 	left: -100%;
-
 	width: 100%;
 	height: 100%;
-
 	background:
 		linear-gradient(
 			120deg,
@@ -219,22 +162,18 @@ input[type="submit"]::before {
 			rgba(255,255,255,0.4),
 			transparent
 		);
-
 	transition: 0.5s;
 }
 
 /* ===== ホバー ===== */
 input[type="submit"]:hover {
-
 	transform: translateY(-4px);
-
 	background:
 		linear-gradient(
 			135deg,
 			#b9f4ff,
 			#9ec3ff
 		);
-
 	box-shadow:
 		0 0 25px rgba(255,255,255,0.45),
 		0 0 50px rgba(120,220,255,0.4);
@@ -242,6 +181,5 @@ input[type="submit"]:hover {
 
 /* ===== 光が流れる ===== */
 input[type="submit"]:hover::before {
-
 	left: 100%;
 }

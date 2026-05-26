@@ -38,12 +38,12 @@ public class Team18LoginController {
 			BindingResult result) {
 		Team18UserEntity user = tls.login(team18LoginForm.getUserEmail(), team18LoginForm.getUserPass());
 		if (result.hasErrors()) {
-			return "team18login/team18login1";
+			return "team18/team18login/team18login1";
 		}
 		if (user == null) {
 			 model.addAttribute("team18LoginForm", new Team18LoginForm());
 			model.addAttribute("error", "メールアドレスまたはパスワードがまちがっています。");
-			return "team18login/team18login1";
+			return "team18/team18login/team18login1";
 		}
 		session.setAttribute("loginUser", user);
 		return "redirect:/team18menu";
