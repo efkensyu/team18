@@ -6,18 +6,18 @@
 <link rel="stylesheet" type="text/css" href="team18/Team18login.css">
 </head>
 <body>
-	<script th:if="${msg}">
-	    alert('[[${msg}]]');
-	</script>
-	<p th:text="${error}"></p>	
 	<form th:method="post" th:action="@{/team18librarylogin}" th:object="${team18LoginForm}">
-	メールアドレス
+	<p class="ensyu">メールアドレス</p>
 	<input type="text" th:size="10" th:field="*{userEmail}">
 	<th:block th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></th:block>
-	パスワード
+	<p class="ensyu">パスワード</p>
 	<input type="text" th:size="10" th:field="*{userPass}">
 	<th:block th:if="${#fields.hasErrors('userPass')}" th:errors="*{userPass}"></th:block>
 	<input type="submit" th:value="ログイン">
+	<script th:if="${msg}">
+		    alert('[[${msg}]]');
+		</script>
+		<p th:text="${error}"></p>	
 <a th:href="@{/team18register}">新規登録</a>	
 </form>
 
