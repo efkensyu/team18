@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.ofg">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ログインページ</title>
 <link rel="stylesheet" type="text/css" href="team18/Team18login.css">
 </head>
 <body>
@@ -11,10 +11,10 @@
 	</script>
 	<p th:text="${error}"></p>	
 	<form th:method="post" th:action="@{/team18librarylogin}" th:object="${team18LoginForm}">
-	メールアドレス
+	<span class="moji">メールアドレス</span>
 	<input type="text" th:size="10" th:field="*{userEmail}">
 	<th:block th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></th:block>
-	パスワード
+	<span class="moji">パスワード</span>
 	<input type="text" th:size="10" th:field="*{userPass}">
 	<th:block th:if="${#fields.hasErrors('userPass')}" th:errors="*{userPass}"></th:block>
 	<input type="submit" th:value="ログイン">

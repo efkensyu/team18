@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.ofg">
 <head>
 <meta charset="UTF-8">
-<title>検索結果</title>
+<title>検索結果ページ</title>
 <link rel="stylesheet" type="text/css" href="team18/Team18search.css">
 </head>
 <body>
@@ -11,17 +11,17 @@
 	        <h1>該当する本がありません</h1>
 
 	    </div>
-	<table border=1>
+	<table>
 		<caption>検索結果</caption>
-	<div class="book-card"
-	     th:each="book : ${searchList}">
-	<tr>
+
+	
+	<tr class="book-card"th:each="book : ${searchList}">
 		<td>
 	    <img class="book-image"
 	         th:src="@{/team18/{file}(file=${book.cover})}"
 	         alt="本の表紙">
-			 </td>
-	    <div class="book-info">
+		</td>
+	    
 
 	        <td><h2 th:text="${book.bookNm}"></h2></td>
 
@@ -45,9 +45,9 @@
 								       </button>
 				        </form></td>
 			</tr>
-			</div>
+			
 	        </table>
-			</table>
+			
 	        <a th:href="@{/team18search}">
 	            戻る
 	        </a>
