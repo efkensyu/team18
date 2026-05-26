@@ -56,8 +56,9 @@ public class Team18ReturnController {
 		   model.addAttribute("rentalList", rentalList);
 		    model.addAttribute("bookList", bookList);
 		 
+
 		    return "team18/team18return/team18returnconfirm";
-}	
+	}
 
     @PostMapping(value = "/team18return", params = "return")
     public String sendreturn(@RequestParam Integer logId) {
