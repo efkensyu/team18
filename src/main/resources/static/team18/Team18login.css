@@ -1,19 +1,51 @@
 /* ===== 全体背景（少し明るめのSF風） ===== */
+/*body {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    font-family: "Segoe UI", "Yu Gothic", sans-serif;*/
+
+/*    background:*/
+/*        radial-gradient(circle at top,*/
+/*        #2f4f7f 20%,*/
+/*        #6379a4 60%);*/
+
+/*    min-height: 100vh;*/
+
+/*    color: #eafcff;*/
+
+/*    overflow-x: hidden;*/
+/*}*/
+/* ===== 背景画像 ===== */
+/* ===== 背景画像 ===== */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Segoe UI", "Yu Gothic", sans-serif;
 
-    background:
-        radial-gradient(circle at top,
-        #2f4f7f 20%,
-        #6379a4 60%);
+	margin: 0;
+	padding: 0;
 
-    min-height: 100vh;
+	font-family: "Segoe UI", "Yu Gothic", sans-serif;
 
-    color: #eafcff;
+	min-height: 100vh;
 
-    overflow-x: hidden;
+	display: flex;
+
+	justify-content: center;
+
+	align-items: center;
+
+	overflow: hidden;
+
+	position: relative;
+
+	/* 背景画像 */
+	background-image:
+		url("../../team18/Team18libraryillustration.png");
+		
+
+		background-size: 100vw 100vh;
+
+	background-position: center;
+
+	background-repeat: no-repeat;
 }
 
 /* 背景グリッド */
