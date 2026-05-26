@@ -121,3 +121,8 @@ p.result{
 	display:grid;
 	grid-template-columns:repeat(5,1fr);
 }
+caption.kekka{
+	font-size:40px;
+		color:rgb(128, 0, 255);
+		font-family: "Meiryo";
+}
