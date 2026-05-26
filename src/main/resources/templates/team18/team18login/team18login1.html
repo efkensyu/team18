@@ -18,8 +18,8 @@
 	<input type="text" th:size="10" th:field="*{userPass}">
 	<th:block th:if="${#fields.hasErrors('userPass')}" th:errors="*{userPass}"></th:block>
 	<input type="submit" th:value="ログイン">
-	
+<a th:href="@{/team18register}">新規登録</a>	
 </form>
-<a th:href="@{/team18register}">新規登録</a>
+
 </body>
 </html>

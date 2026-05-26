@@ -6,39 +6,56 @@
 <link rel="stylesheet" type="text/css" href="team18/Team18search.css">
 </head>
 <body>
+	<div th:if="${searchList == null or searchList.isEmpty()}">
+
+	        <h2>該当する本がありません</h2>
+
+	        <form th:action="@{/team18menu}" method="get">
+	            <button type="submit">
+	                メニューに戻る
+	            </button>
+	        </form>
+
+	    </div>
+	<table border=1>
+	<caption>検索結果</caption>
 	<div class="book-card"
 	     th:each="book : ${searchList}">
-
+	<tr>
+		<td>
 	    <img class="book-image"
 	         th:src="@{/team18/{file}(file=${book.cover})}"
 	         alt="本の表紙">
-
+			 </td>
 	    <div class="book-info">
 
-	        <h2 th:text="${book.bookNm}"></h2>
+	        <td><h2 th:text="${book.bookNm}"></h2></td>
 
-	        <p th:text="'作者：' + ${book.author}"></p>
+	        <td><p th:text="'作者：' + ${book.author}"></p></td>
 
-	        <p th:text="'発行日：' + ${book.publishDay}"></p>
+	        <td><p th:text="'発行日：' + ${book.publishDay}"></p></td>
 
-	        <p th:text="'在庫：' + ${book.stock}"></p>
+	        <td><p th:text="'在庫：' + ${book.stock}"></p></td>
+			
+			<td>			<form th:action="@{/team18rental}"
+				              method="post">
 
-	        <form th:action="@{/team18rental}"
-	              method="post">
+				            <input type="hidden"
+				                   name="bookId"
+				                   th:value="${book.bookId}">
 
-	            <input type="hidden"
-	                   name="bookId"
-	                   th:value="${book.bookId}">
-
-					   <button type="submit"
-					               th:disabled="${book.stock <= 0}"
-					               th:text="${book.stock <= 0} ? '在庫なし' : '借りる'">
-					          レンタル
-					       </button>
-	        </form>
-
+								   <button type="submit"
+								               th:disabled="${book.stock <= 0}"
+								               th:text="${book.stock <= 0} ? '在庫なし' : '借りる'">
+								          レンタル
+								       </button>
+				        </form></td>
+			</tr>
+			</div>
+	        </table>
+			</table>
 	        <a th:href="@{/team18search}">
 	            戻る
-	        </a></div></div>
+	        </a>
 </body>
 </html>
