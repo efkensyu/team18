@@ -13,6 +13,10 @@
         現在貸出中の本はございません
     </div>
 
+	<p class ="error" th:if="${message != null}"
+	   th:text="${message}">
+	</p>
+	
     <div class="book-card"
          th:each="status, stat : ${rentalList}">
 
@@ -52,6 +56,10 @@
             th:if="${!#lists.isEmpty(rentalList)}">
         選択した本を返却
     </button>
+	<button type="button"
+	        onclick="location.href='/team18menu'">
+	    メニューに戻る
+	</button>
 
 </form>
 
