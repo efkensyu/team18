@@ -158,7 +158,9 @@ label {
 
     letter-spacing: 1px;
 }
-
+p.ensyu{
+	color:whitesmoke;
+}
 /* ===== 入力欄 ===== */
 input[type="text"],
 input[type="email"],
