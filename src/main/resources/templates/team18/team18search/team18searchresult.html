@@ -8,17 +8,11 @@
 <body>
 	<div th:if="${searchList == null or searchList.isEmpty()}">
 
-	        <h2>該当する本がありません</h2>
-
-	        <form th:action="@{/team18menu}" method="get">
-	            <button type="submit">
-	                メニューに戻る
-	            </button>
-	        </form>
+	        <h1>該当する本がありません</h1>
 
 	    </div>
 	<table border=1>
-	<caption>検索結果</caption>
+		<caption>検索結果</caption>
 	<div class="book-card"
 	     th:each="book : ${searchList}">
 	<tr>
