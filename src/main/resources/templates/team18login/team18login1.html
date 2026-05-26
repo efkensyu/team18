@@ -11,7 +11,7 @@
 	</script>
 	<p th:text="${error}"></p>	
 	<form th:method="post" th:action="@{/team18librarylogin}" th:object="${team18LoginForm}">
-		名前
+	メールアドレス
 	<input type="text" th:size="10" th:field="*{userEmail}">
 	<th:block th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></th:block>
 	パスワード
