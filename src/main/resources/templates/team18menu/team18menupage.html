@@ -6,24 +6,21 @@
 	<title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="team18/Team18menu.css">
 </head>
+
 <body>
 
-<br>
+	<br>
+	
 	<div class="menu-container">
-		<p class="title-name"
-		   th:if="${titleName != null}"
-		   th:text="${titleName}">
+		<p class="title-name" th:if="${titleName != null}" th:text="あなたの称号: + ${titleName}">
 		</p>
-		<h1 class="user-name" th:text="${user.userNm}"></h1>
+		<h2 class="user-name" th:text="ようこそ + ${user.userNm} + 様"></h2>
 
-
-	<p>本の貸出・返却サービス</p>
-
-	<form method="post" th:action="@{/team18menu}">
-		<input type="submit" name="search" value="本を検索する・借りる" />
-		<input type="submit" name="return" value="本を返却する" />
-	</form>
-</div>
+		<form method="post" th:action="@{/team18menu}">
+			<input type="submit" name="search" value="本を検索する・借りる" />
+			<input type="submit" name="return" value="本を返却する" />
+		</form>
+	</div>
 </body>
 
 </html>
