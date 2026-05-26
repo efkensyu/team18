@@ -6,23 +6,25 @@
 <link rel="stylesheet" type="text/css" href="team18/Team18login.css">
 </head>
 <body>
-	<h1>新規登録</h1>
 	<form th:action="@{/team18register}" method="post" th:object="${team18RegisterForm}">
-	    名前
+		<h1>新規登録</h1>
+	    <p class="ensyu">名前</p>
 	    <input type="text" th:field="*{userNm}">
 		<th:block th:if="${#fields.hasErrors('userNm')}" th:errors="*{userNm}"></th:block>
 	    <br>
-	    メール
+	    <p class="ensyu">メール</p>
 	    <input type="email" th:field="*{userEmail}">
 		<th:block th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></th:block>
 	    <br>
-	    パスワード
+	    <p class="ensyu">パスワード</p>
 	    <input type="password" th:field="*{userPass}">
 		<th:block th:if="${#fields.hasErrors('userPass')}" th:errors="*{userPass}"></th:block>
 	    <br>
 	    <button type="submit" name="register">
 	        登録
 	    </button>
+		<a th:href="@{/team18librarylogin}">戻る</a>	
 	</form>
+	
 </body>
 </html>
