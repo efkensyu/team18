@@ -33,7 +33,7 @@ public class Team18ReturnController {
 
 	}
 	
-	@PostMapping(value = "/team18return", params = "return")
+	@PostMapping(value = "/team18return", params = "returnbook")
 	public String sendreturn(HttpSession session,Model model) {
 	
 		Team18UserEntity user =(Team18UserEntity)session.getAttribute("loginUser");
