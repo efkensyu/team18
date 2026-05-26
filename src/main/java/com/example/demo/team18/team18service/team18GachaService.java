@@ -37,6 +37,10 @@ public class team18GachaService {
 		
 		return titles.get(randomtitle);
 	}
+	
+	public void insert(long titleid, String email ) {
+		ttr.insertTitle(titleid, email);
+	}
 }
 
 
