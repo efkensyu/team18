@@ -12,7 +12,11 @@
 <form th:action="@{/team18search}" th:method="post">
     <input type="text" name="keyword">
     <button type="submit">検索</button>
+	<button class="back" type="button" onclick="location.href='/team18menu'">
+		    戻る
+	</button>
 </form>
+
 <br>
 <th:block class="scrollbox">
 	<div class="book-card" th:each="book : ${searchList}">
