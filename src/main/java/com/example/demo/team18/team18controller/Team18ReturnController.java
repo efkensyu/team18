@@ -61,12 +61,35 @@ public class Team18ReturnController {
 	}
 
     @PostMapping(value = "/team18return", params = "return")
-    public String sendreturn(@RequestParam Integer logId) {
+    public String sendreturn( @RequestParam(required = false) Integer logId,
+            HttpSession session,
+            Model model) {
+        Team18UserEntity user =(Team18UserEntity) session.getAttribute("loginUser");
 
-    trs.returnBook(logId);
+        List<Team18StatusEntity> rentalList = trs.findRentalList(user.getUserId());
+
+        List<Team18BookEntity> bookList = new ArrayList<>();
+
+        for (Team18StatusEntity status : rentalList) {
+            Team18BookEntity book = tbr.findByBookIdEquals(status.getBookId());
+            bookList.add(book);
+        }
+        
+        if (logId == null) {
+
+            model.addAttribute( "message","返却する本を選んでください");
+            model.addAttribute("rentalList", rentalList);
+            model.addAttribute("bookList", bookList);
+
+            return "team18/team18return/team18returnconfirm";
+        }
+
+        // 返却処理
+        trs.returnBook(logId);
+
+        return "redirect:/team18gacha";
     
 
-    return "redirect:/team18gacha";
 
 }
 }
