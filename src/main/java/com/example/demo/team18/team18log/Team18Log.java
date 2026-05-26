@@ -16,12 +16,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Team18Log {
 	
-	@AfterThrowing("execution(* com.example.demo.team18controller.*.*(..))")
+	@AfterThrowing("execution(* com.example.demo.team18.team18controller.*.*(..))")
 	public void afterThrowingLog(JoinPoint jp) {
 		log.error("エラー発生。発生タイミング：{}", Arrays.toString(jp.getArgs()));
 	}
 	
-	@Around("execution(* com.example.demo.team18controller.*.*(..))")
+	@Around("execution(* com.example.demo.team18.team18controller.*.*(..))")
 	public Object AroundLog(ProceedingJoinPoint jp) throws Throwable {
 		try {
 			log.info("送ったデータ：{}・対象のメソッド：{}", Arrays.toString(jp.getArgs()), jp.getSignature());
