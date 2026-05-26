@@ -24,11 +24,13 @@ public class Team18ReturnController {
 	
 	@GetMapping("/team18return")
 	public String bookreturn() {
+
 		return "team18return/team18returnpage";
 	}
 	@PostMapping(value = "/team18return", params = "menu")
 	public String sendback() {
 		return "redirect:/team18menu";
+
 	}
 	
 	@PostMapping(value = "/team18return", params = "return")
@@ -37,6 +39,7 @@ public class Team18ReturnController {
 		Team18UserEntity user =(Team18UserEntity)session.getAttribute("loginUser");
 	
 		
+
 		List<Team18StatusEntity> rentalList = trs.findRentalList(user.getUserId());
 		 model.addAttribute("rentalList", rentalList);
 
@@ -49,5 +52,6 @@ public class Team18ReturnController {
     trs.returnBook(logId);
 
     return "redirect:/team18gacha";
+
 }
 }

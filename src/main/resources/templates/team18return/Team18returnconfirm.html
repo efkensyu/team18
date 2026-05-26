@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="team18/Team18return.css">
 </head>
 <body>
+
 	<form th:action="@{/team18return}" method="post">
 	    <div th:if="${#lists.isEmpty(rentalList)}">
 	        現在貸出中の本はございません
@@ -25,5 +26,6 @@
 	        選択した本を返却
 	    </button>
 	</form>
+
 </body>
 </html>

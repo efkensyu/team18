@@ -6,6 +6,7 @@
 	<title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="team18/Team18menu.css">
 </head>
+<body>
 
 <br>
 	<div class="menu-container">
@@ -14,6 +15,10 @@
 		   th:text="${titleName}">
 		</p>
 		<h1 class="user-name" th:text="${user.userNm}"></h1>
+
+
+	<p>本の貸出・返却サービス</p>
+
 	<form method="post" th:action="@{/team18menu}">
 		<input type="submit" name="search" value="本を検索する・借りる" />
 		<input type="submit" name="return" value="本を返却する" />
