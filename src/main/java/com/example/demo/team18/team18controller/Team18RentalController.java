@@ -1,7 +1,5 @@
 package com.example.demo.team18.team18controller;
 
-import java.time.LocalDate;
-
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -13,14 +11,14 @@ import com.example.demo.team18.team18entity.Team18BookEntity;
 import com.example.demo.team18.team18entity.Team18StatusEntity;
 import com.example.demo.team18.team18entity.Team18UserEntity;
 import com.example.demo.team18.team18repositories.Team18RentalRepository;
-import com.example.demo.team18.team18repositories.Team18StatusRepository;
+import com.example.demo.team18.team18service.Team18RentalService;
 
 import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
 public class Team18RentalController{
-	private final Team18StatusRepository tsr;
+	private final Team18RentalService trs;
 	private final Team18RentalRepository trr;
 //	確認画面表示
 	@PostMapping("/team18rental")
@@ -39,10 +37,8 @@ public class Team18RentalController{
 
 		Team18StatusEntity log =new Team18StatusEntity();
 
-		log.setBookId(bookId);
-		log.setUserId(user.getUserId());
-		log.setRentStart(LocalDate.now());
-		tsr.save(log);		
+		trs.rentBook(bookId, user.getUserId());
+		
 		return "team18/team18rental/team18rentalresult";
 	}
 }
