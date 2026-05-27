@@ -52,7 +52,7 @@ public class Team18ReturnController {
 		    model.addAttribute("bookList", bookList);
 		 
 
-		    return "team18/team18return/team18returnconfirm";
+		    return "team18/team18return/Team18returnconfirm";
 	}
 
     @PostMapping(value = "/team18return", params = "return")
@@ -76,7 +76,7 @@ public class Team18ReturnController {
             model.addAttribute("rentalList", rentalList);
             model.addAttribute("bookList", bookList);
 
-            return "team18/team18return/team18returnconfirm";
+            return "team18/team18return/Team18returnconfirm";
         }
         // 返却処理
         trs.returnBook(logId);
