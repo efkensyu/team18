@@ -9,16 +9,15 @@
 	<form th:method="post" th:action="@{/team18librarylogin}" th:object="${team18LoginForm}">
 	<p class="ensyu">メールアドレス</p>
 	<input type="text" th:size="10" th:field="*{userEmail}">
-	<p class="error" th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></p>
+	<span class="error" th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></span>
 	<p class="ensyu">パスワード</p>
 
 	<input type="text" th:size="10" th:field="*{userPass}">
-	<p class="error" th:if="${#fields.hasErrors('userPass')}" th:errors="*{userPass}"></p>
+	<span class="error" th:if="${#fields.hasErrors('userPass')}" th:errors="*{userPass}"></span>
 	<input type="submit" th:value="ログイン">
 	<script th:if="${msg}">
 		    alert('[[${msg}]]');
 		</script>
-		<p th:text="${error}"></p>	
 <a th:href="@{/team18register}">新規登録</a>	
 </form>
 

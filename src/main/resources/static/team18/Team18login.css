@@ -19,6 +19,8 @@
 /* ===== 背景画像 ===== */
 body {
 
+	align-items: flex-start;
+	    padding-top: 80px;
 	margin: 0;
 	padding: 0;
 
@@ -281,7 +283,11 @@ a:hover {
 }
 
 /* ===== エラーメッセージ ===== */
-span.error , p{
+span.error {
+	
+	display: block;
+	
+	min-height:24px;
 
     text-align: center;
 

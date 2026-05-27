@@ -11,15 +11,15 @@
 	    <p class="ensyu">名前</p>
 	    <input type="text" th:field="*{userNm}">
 		<span class="error" th:if="${#fields.hasErrors('userNm')}" th:errors="*{userNm}"></span>
-	    <br>
+	    
 	    <p class="ensyu">メール</p>
 	    <input type="email" th:field="*{userEmail}">
 		<span class="error" th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></span>
-	    <br>
+	    
 	    <p class="ensyu">パスワード</p>
 	    <input type="password" th:field="*{userPass}">
 		<span class="error" th:if="${#fields.hasErrors('userPass')}" th:errors="*{userPass}"></span>
-	    <br>
+	    
 	    <button type="submit" name="register">
 	        登録
 	    </button>
