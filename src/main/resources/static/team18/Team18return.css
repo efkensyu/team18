@@ -43,6 +43,23 @@ p {
 	margin:0 auto;
 }
 
+button{
+    padding: 13px 28px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #55dfff, #5d8cff);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(80,180,255,0.5);
+}
+
+button:hover,
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(90deg, #9af2ff, #89aaff);
+}
+
 p.error{
 	color: red;
 }
