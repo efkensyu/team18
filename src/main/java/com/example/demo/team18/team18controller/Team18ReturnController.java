@@ -25,18 +25,13 @@ public class Team18ReturnController {
 	private final Team18ReturnService trs;
 	private final Team18BookRepository tbr;
 	
-	@GetMapping("/team18return")
-	public String bookreturn() {
-
-		return "team18/team18return/team18returnpage";
-	}
 	@PostMapping(value = "/team18return", params = "menu")
 	public String sendback() {
 		return "redirect:/team18menu";
 
 	}
 	
-	@PostMapping(value = "/team18return", params = "returnbook")
+	@GetMapping(value = "/team18return", params = "returnbook")
 	public String sendreturn(HttpSession session,Model model) {
 	
 		Team18UserEntity user =(Team18UserEntity)session.getAttribute("loginUser");
@@ -57,7 +52,7 @@ public class Team18ReturnController {
 		    model.addAttribute("bookList", bookList);
 		 
 
-		    return "team18/team18return/Team18returnconfirm";
+		    return "team18/team18return/team18returnconfirm";
 	}
 
     @PostMapping(value = "/team18return", params = "return")
@@ -81,7 +76,7 @@ public class Team18ReturnController {
             model.addAttribute("rentalList", rentalList);
             model.addAttribute("bookList", bookList);
 
-            return "team18/team18return/Team18returnconfirm";
+            return "team18/team18return/team18returnconfirm";
         }
         // 返却処理
         trs.returnBook(logId);
