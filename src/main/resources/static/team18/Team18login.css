@@ -313,3 +313,10 @@ p {
 .moji{
 	color:#c9f7ff
 }
+/*文字を中央に修正*/
+h1.center{
+	margin-bottom: 30px;
+}
+th:block.error{
+	color: rgb(255, 0, 0);
+}

@@ -256,21 +256,13 @@ form::before {
 }
 
 @keyframes rotateStar {
-    0%, 100% {
+    0%{
         transform: translateX(-50%) rotate(0deg);
     }
-	20%{
-		transform: translateX(200%) rotate(360deg);
+	100%{
+		transform: translateX(-50%) rotate(720deg);
 	}
-	40%{
-		transform: translateX(200%) translateY(150%) rotate(360deg);
-	}
-	60%{
-		transform: translateX(-300%) translateY(150%) rotate(720deg);
-	}
-	80%{
-		transform: translateX(-300%) translateY(0%) rotate(720deg);
-	}
+
 	
 	
 	
