@@ -1,6 +1,7 @@
 package com.example.demo.team18.team18controller;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,8 +35,8 @@ public class Team18LoginController {
 
 	//	ログイン認証
 	@PostMapping("/team18librarylogin")
-	public String login(@ModelAttribute Team18LoginForm team18LoginForm, HttpSession session, Model model,
-			BindingResult result) {
+	public String login(@Valid @ModelAttribute Team18LoginForm team18LoginForm,BindingResult result, HttpSession session, Model model
+			) {
 		Team18UserEntity user = tls.login(team18LoginForm.getUserEmail(), team18LoginForm.getUserPass());
 		if (result.hasErrors()) {
 			return "team18/team18login/team18login1";
@@ -60,8 +61,8 @@ public class Team18LoginController {
 	}
 
 	@PostMapping("/team18register")
-	public String registermenu(@ModelAttribute Team18RegisterForm team18RegisterForm, Model model,
-			BindingResult result) {
+	public String registermenu(@Valid @ModelAttribute  Team18RegisterForm team18RegisterForm,BindingResult result , Model model
+			) {
 		if (result.hasErrors()) {
 			 model.addAttribute("team18RegisterForm", team18RegisterForm);
 			return "team18/team18login/Team18Register";
