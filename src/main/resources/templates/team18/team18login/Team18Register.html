@@ -10,15 +10,15 @@
 		<h1 class="center">新規登録</h1>
 	    <p class="ensyu">名前</p>
 	    <input type="text" th:field="*{userNm}">
-		<p class="error" th:if="${#fields.hasErrors('userNm')}" th:errors="*{userNm}"></p>
+		<span class="error" th:if="${#fields.hasErrors('userNm')}" th:errors="*{userNm}"></span>
 	    <br>
 	    <p class="ensyu">メール</p>
 	    <input type="email" th:field="*{userEmail}">
-		<p class="error" th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></p>
+		<span class="error" th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></span>
 	    <br>
 	    <p class="ensyu">パスワード</p>
 	    <input type="password" th:field="*{userPass}">
-		<p class="error" th:if="${#fields.hasErrors('userPass')}" th:errors="*{userPass}"></p>
+		<span class="error" th:if="${#fields.hasErrors('userPass')}" th:errors="*{userPass}"></span>
 	    <br>
 	    <button type="submit" name="register">
 	        登録
