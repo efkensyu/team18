@@ -26,7 +26,7 @@ public class Team18RentalController{
 	 
 		Team18BookEntity book = trr.findByBookIdEquals(bookId);
 		model.addAttribute("book",book);
-		return "team18/team18rental/team18rentalconfirm";
+		return "team18/team18rental/Team18RentalConfirm";
 	}
 //	確定画面
 	@PostMapping("/team18rentalresult")

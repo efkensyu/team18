@@ -20,7 +20,7 @@ public class Team18GachaController {
 	
 	@GetMapping("/team18gacha")
 	public String gacha() {
-		return "team18/team18gacha/Team18GachaPage";
+		return "team18/team18gacha/Team18Gachapage";
 	}
 	@PostMapping("/team18gacha")
 	public String gacharesult(Model model, HttpSession session) {

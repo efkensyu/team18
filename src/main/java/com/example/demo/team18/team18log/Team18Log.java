@@ -28,7 +28,7 @@ public class Team18Log {
 			Object result = jp.proceed(); //ここでindexメソッドを動かして戻り値をresultに入れる
 			return result;
 		} catch (Exception e) {
-			return "team18error/team18error";
+			return "team18/team18error/team18error";
 		}
 	}
 	
