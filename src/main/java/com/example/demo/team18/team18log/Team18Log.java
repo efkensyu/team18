@@ -27,7 +27,7 @@ public class Team18Log {
 			log.info("送ったデータ：{}・対象のメソッド：{}", Arrays.toString(jp.getArgs()), jp.getSignature());
 			Object result = jp.proceed(); //ここでindexメソッドを動かして戻り値をresultに入れる
 			return result;
-		} catch (Exception e) {
+		} catch (Throwable e) {
 			return "team18/team18error/team18error";
 		}
 	}
